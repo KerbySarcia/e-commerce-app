@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import banners from "../public/assets/banners";
 import ArrowCircleLeftRoundedIcon from "@mui/icons-material/ArrowCircleLeftRounded";
 import ArrowCircleRightRoundedIcon from "@mui/icons-material/ArrowCircleRightRounded";
-
+import CircleIcon from "@mui/icons-material/Circle";
 const Slide = () => {
   const [slideIndex, setSlideIndex] = useState(0);
 
@@ -43,6 +43,29 @@ const Slide = () => {
         fontSize="large"
         className="text-white hidden group-hover:block cursor-pointer absolute bottom-1/2 right-0 mr-1"
       />
+      <div className="absolute bottom-2 left-[39%] sm:left-[44%] lg:left-[47%] space-x-2">
+        <CircleIcon
+          onClick={() => setSlideIndex(0)}
+          fontSize="small"
+          className={`text-white cursor-pointer ${
+            slideIndex + 1 === 1 ? "opacity-50" : "opacity-100"
+          }`}
+        />
+        <CircleIcon
+          onClick={() => setSlideIndex(1)}
+          fontSize="small"
+          className={`text-white cursor-pointer ${
+            slideIndex + 1 === 2 ? "opacity-50" : "opacity-100"
+          }`}
+        />
+        <CircleIcon
+          onClick={() => setSlideIndex(2)}
+          fontSize="small"
+          className={`text-white cursor-pointer ${
+            slideIndex + 1 === 3 ? "opacity-50" : "opacity-100"
+          }`}
+        />
+      </div>
     </div>
   );
 };

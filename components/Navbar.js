@@ -6,8 +6,8 @@ import AccountCircleRoundedIcon from "@mui/icons-material/AccountCircleRounded";
 const Navbar = () => {
   return (
     <nav className="bg-[#86C8BC]">
-      <div className="flex p-3 items-center justify-between lg:w-5/6 lg:mx-auto lg:py-3 lg:px-0">
-        <h1 className="text-white md:text-lg font-serif cursor-pointer">
+      <div className="flex p-3 items-center  justify-between lg:w-5/6 lg:mx-auto lg:py-3 lg:px-0">
+        <h1 className="text-white  md:text-lg cursor-pointer">
           Sarcia's Store
         </h1>
         <div className="flex items-center space-x-4">
