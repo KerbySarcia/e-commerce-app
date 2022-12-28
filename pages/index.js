@@ -1,7 +1,23 @@
 import Head from "next/head";
+import { useState } from "react";
+import Categories from "../components/Categories";
 import Slide from "../components/Slide";
+import TopProducts from "../components/TopProducts";
 
-export default function Home() {
+export async function getServerSideProps(context) {
+  const response = await fetch("https://fakestoreapi.com/products?limit=10");
+  const data = await response.json();
+  return {
+    props: { data }, // will be passed to the page component as props
+  };
+}
+
+export default function Home({ data }) {
+  if (!data) {
+    return (
+      <h1 className="h-screen flex justify-center items-center">Loading...</h1>
+    );
+  }
   return (
     <>
       <Head>
@@ -11,9 +27,11 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className="h-screen bg-slate-100">
-        <div className="lg:w-5/6 lg:mx-auto bg-slate-500 h-full">
+      <main className="">
+        <div className="lg:w-5/6 lg:mx-auto">
           <Slide />
+          <TopProducts products={data} />
+          <Categories />
         </div>
       </main>
     </>

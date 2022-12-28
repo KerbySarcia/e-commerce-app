@@ -27,7 +27,7 @@ const Slide = () => {
     else setSlideIndex(slideIndex - 1);
   };
   return (
-    <div className="h-1/2 relative group">
+    <div className="h-96 relative group">
       <div
         style={{ backgroundImage: `url(${banners[slideIndex].img})` }}
         className="h-full bg-center bg-contain duration-500"
