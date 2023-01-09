@@ -23,6 +23,7 @@ const Categories = () => {
               priority
               fill
               className="object-cover"
+              sizes="width:100%,height:100%"
             />
             <div className="h-full bg-black absolute w-full opacity-20 group-hover:opacity-50 duration-500"></div>
             <h1 className="absolute w-full text-center top-[46%] text-2xl uppercase font-bold text-white ">
@@ -39,6 +40,7 @@ const Categories = () => {
               priority
               fill
               className="object-cover"
+              sizes="width:100%,height:100%"
             />
             <div className="h-full bg-black absolute w-full opacity-20 group-hover:opacity-50 duration-500"></div>
             <h1 className="absolute w-full text-center top-[46%] text-2xl uppercase font-bold text-white ">
@@ -55,6 +57,7 @@ const Categories = () => {
               priority
               fill
               className="object-cover"
+              sizes="width:100%,height:100%"
             />
             <div className="h-full bg-black absolute w-full opacity-20 group-hover:opacity-50 duration-500"></div>
             <h1 className="absolute w-full text-center top-[46%] text-2xl uppercase font-bold text-white ">
@@ -71,6 +74,7 @@ const Categories = () => {
               priority
               fill
               className="object-cover"
+              sizes="width:100%,height:100%"
             />
             <div className="h-full bg-black absolute w-full opacity-20 group-hover:opacity-50 duration-500"></div>
             <h1 className="absolute w-full text-center top-[46%] text-2xl uppercase font-bold text-white ">

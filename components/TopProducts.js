@@ -3,6 +3,8 @@ import Image from "next/image";
 import ChevronLeftRoundedIcon from "@mui/icons-material/ChevronLeftRounded";
 import WhatshotRoundedIcon from "@mui/icons-material/WhatshotRounded";
 import ChevronRightRoundedIcon from "@mui/icons-material/ChevronRightRounded";
+import Link from "next/link";
+
 const TopProducts = ({ products }) => {
   const rightSlide = (e) => {
     const slider = e.target.parentElement;
@@ -14,36 +16,40 @@ const TopProducts = ({ products }) => {
     slider.scrollLeft = slider.scrollLeft - 500;
   };
 
-  const textFormat = (size, text) => {
-    if (size < 20) {
+  const textFormat = (title, text) => {
+    if (title === "title") {
       return text.slice(0, 10) + "...";
     } else {
       return text.slice(0, 50) + "...";
     }
   };
 
-  const elementProducts = products.map((product) => {
+  const elementProducts = products.map((product, key) => {
     return (
-      <div className="w-48 mt-5  mr-1 cursor-pointer hover:opacity-50 duration-500">
-        <div className="w-48 h-48 relative ">
-          <Image
-            fill
-            className="object-contain"
-            src={product.image}
-            alt={product.title}
-          />
+      <Link href={`/product?id=${product.id}`} key={key}>
+        <div className="w-48 mt-5  mr-1 cursor-pointer hover:opacity-50 duration-500">
+          <div className="w-40 h-40 relative ">
+            <Image
+              fill
+              className="object-contain"
+              src={product.image}
+              alt={product.title}
+              priority
+              sizes="width:160px, height:160px"
+            />
+          </div>
+          <div className="text-center">
+            <h1 className="font-bold text-[#FD8A8A]">
+              {textFormat("title", product.title)}
+            </h1>
+            <h2 className="text-xs">
+              {textFormat("description", product.description)}
+            </h2>
+            <h2 className="text-green-800 font-bold">${product.price}</h2>
+            <button></button>
+          </div>
         </div>
-        <div className="text-center">
-          <h1 className="font-bold text-[#FD8A8A]">
-            {textFormat(10, product.title)}
-          </h1>
-          <h2 className="text-xs">
-            {textFormat(product.description.length, product.description)}
-          </h2>
-          <h2 className="text-green-800 font-bold">${product.price}</h2>
-          <button></button>
-        </div>
-      </div>
+      </Link>
     );
   });
   return (

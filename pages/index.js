@@ -3,21 +3,18 @@ import { useState } from "react";
 import Categories from "../components/Categories";
 import Slide from "../components/Slide";
 import TopProducts from "../components/TopProducts";
+import { auth } from "../firebase";
 
-export async function getServerSideProps(context) {
+export async function getStaticProps(context) {
   const response = await fetch("https://fakestoreapi.com/products?limit=10");
   const data = await response.json();
+
   return {
     props: { data }, // will be passed to the page component as props
   };
 }
 
 export default function Home({ data }) {
-  if (!data) {
-    return (
-      <h1 className="h-screen flex justify-center items-center">Loading...</h1>
-    );
-  }
   return (
     <>
       <Head>
